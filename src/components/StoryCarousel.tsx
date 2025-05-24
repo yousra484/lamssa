@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
 // Importer toutes les images
 import storyImage1 from './photos/photo1.jpeg';
 import storyImage2 from './photos/photo2.jpeg';
@@ -177,12 +178,12 @@ const StoryCarousel = () => {
             شاركي قصتك مع مجتمعنا وألهمي حرفيات أخريات للبدء في رحلتهن
           </p>
           <Button
-            variant="default"
-            className="bg-terracotta-600 hover:bg-terracotta-700 text-white"
-            onClick={() => window.location.href = '/add-story'}
-          >
-            شاركي قصتك
-          </Button>
+           asChild
+           variant="default"
+           className="bg-terracotta-600 hover:bg-terracotta-700 text-white"
+>
+           <Link to="/add-story">شاركي قصتك</Link>
+         </Button>
         </div>
       </div>
     </section>
