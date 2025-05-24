@@ -16,7 +16,8 @@ const Index = () => {
         <FeaturedProducts />
         <FeaturedArtisans />
         <StoryCarousel />
-        <ContactSection />
+        <ContactSection /> 
+        
       </div>
     </Layout>
   );
