@@ -72,7 +72,7 @@ const AddStory = () => {
                 onChange={handleChange}
                 required
                 className="w-full mt-2"
-                placeholder="أدخلي عنوان قصتك"
+                placeholder=" أدخلي عنوان قصتك"
               />
             </div>
 
