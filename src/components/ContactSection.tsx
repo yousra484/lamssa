@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MessageSquare, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
+import {Phone,Mail} from 'lucide-react';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -161,18 +162,25 @@ const ContactSection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 flex-grow">
+                <div>
+                    <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">الهاتف</h4>
+                    <a href="tel:+213XXXXXXXX" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+                    <Phone className="h-4 w-4" />
+                      +213 XX XX XX XX
+                      </a>
+                  </div>
                   <div>
                     <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">العنوان</h4>
-                    <p className="text-white">تلمسان، الجزائر</p>
+                    <p className="text-white">جامعة تلمسان - كلية العلوم الاقتصادية</p>
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">البريد الإلكتروني</h4>
-                    <p className="text-white">meriemhaddou22@gmail.com</p>
+                    <a href="mailto:meriemhaddou22@gmail.com" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+                      <Mail className="h-4 w-4" />
+                      meriemhaddou22@gmail.com
+                      </a>
                   </div>
-                  <div>
-                    <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">الهاتف</h4>
-                    <p className="text-white">+213 659 793 110</p>
-                  </div>
+                 
                 </div>
               </CardContent>
             </Card>

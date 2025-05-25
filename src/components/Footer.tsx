@@ -70,7 +70,7 @@ const Footer = () => {
               <li>
                 <span className="flex items-center gap-2 text-white/80">
                   <MapPin className="h-4 w-4" />
-                  الجزائر العاصمة، الجزائر
+                  تلمسان، الجزائر
                 </span>
               </li>
             </ul>
