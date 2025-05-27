@@ -4,10 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
-import { MessageSquare, ArrowRight } from 'lucide-react';
+import { MessageSquare, ArrowRight, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from 'emailjs-com';
 import {Phone,Mail} from 'lucide-react';
+import SimpleMap from './SimpleMap';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -185,6 +186,34 @@ const ContactSection = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+
+        {/* Static Map Section */}
+        <div className="mt-16">
+          <Card className="border-0 shadow-lg">
+            <div className="p-6">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                  <MapPin className="w-5 h-5 text-[#990F0F]" />
+                  موقعنا
+                </h2>
+                <p className="text-gray-600">جامعة تلمسان - كلية العلوم الاقتصادية</p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 sm:p-6 text-center space-y-4 border border-gray-200">
+                
+
+               
+                <div className="w-full h-96 sm:h-[500px] -mx-4 sm:mx-0">
+                  <SimpleMap 
+                    lat={34.8797}
+                    lng={-1.3577}
+                    zoom={17}
+                    className="w-full h-full rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     </section>
