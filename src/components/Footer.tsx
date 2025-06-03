@@ -56,9 +56,9 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">تواصل معنا</h3>
             <ul className="space-y-2">
               <li>
-                <a href="mailto:meriemhaddou22@gmail.com" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+                <a href="mailto:contact@lamssahora.online" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
                   <Mail className="h-4 w-4" />
-                  meriemhaddou22@gmail.com
+                  contact@lamssahora.online
                 </a>
               </li>
               <li>

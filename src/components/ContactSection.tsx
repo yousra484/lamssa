@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { MessageSquare, ArrowRight, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from 'emailjs-com';
+
 import {Phone,Mail} from 'lucide-react';
 import SimpleMap from './SimpleMap';
 
@@ -43,41 +43,42 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      await emailjs.send(
-        'service_bj7hkhy',
-        'template_43tegvx',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'meriemhaddou22@gmail.com',
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        'zeXxG000fWEnnysys'
-      );
-
-      toast({
-        title: 'تم الإرسال',
-        description: 'تم إرسال رسالتك بنجاح.',
+        body: JSON.stringify(formData),
       });
-
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      const data = await response.json();
+      if (response.ok) {
+        toast({
+          title: 'تم الإرسال',
+          description: 'سيتم الرد على رسالتك في أقرب وقت ممكن.',
+        });
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: 'خطأ',
+          description: data.message || 'حدث خطأ أثناء إرسال الرسالة.',
+          variant: "destructive",
+        });
+      }
     } catch (error) {
-      console.error('حدث خطأ أثناء إرسال الرسالة:', error);
       toast({
         title: 'خطأ',
-        description: 'فشل في إرسال الرسالة.',
+        description: 'تعذر الاتصال بالخادم. يرجى المحاولة لاحقًا.',
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
+
 
   return (
     <section id="contact" className="py-16 bg-cream-50">
@@ -176,9 +177,9 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">البريد الإلكتروني</h4>
-                    <a href="mailto:meriemhaddou22@gmail.com" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+                    <a href="mailto:contact@lamssahora.online" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
                       <Mail className="h-4 w-4" />
-                      meriemhaddou22@gmail.com
+                      contact@lamssahora.online
                       </a>
                   </div>
                  
